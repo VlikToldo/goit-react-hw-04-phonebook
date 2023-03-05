@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactcForm';
 import ContactFilter from './ContactFilter/ContactFilter';
 import ContactList from './ContactList/ContactList';
-import ContactItem from './ContactItem/ContactItem';
+
 
 import styles from './phonebook.module.css';
 
@@ -86,9 +86,7 @@ const Phonebook = () => {
         <div className={styles.listBox}>
           <ContactFilter handleChange={handleFilter} />
           {isContacts && (
-            <ContactList>
-              <ContactItem items={items} removeBook={removeBook} />
-            </ContactList>
+            <ContactList items={items} removeBook={removeBook}/>
           )}
           {!isContacts && 'You dont have a contacts'}
         </div>

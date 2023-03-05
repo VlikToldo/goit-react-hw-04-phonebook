@@ -1,12 +1,16 @@
 import PropTypes from 'prop-types';
 
+import ContactItem from '../ContactItem/ContactItem';
+
 import styles from './contact-list.module.css';
 
-const ContactList = ({children}) => {
+const ContactList = ({items, removeBook}) => {
+
+  const elements = items.map(item => <ContactItem key={item.id} {...item} removeBook={removeBook}/>)
 
       return (
         <ol className={styles.contactList}>
-            {children}
+            {elements}
         </ol>
       )
 }
@@ -14,5 +18,6 @@ const ContactList = ({children}) => {
 export default ContactList;
 
 ContactList.propTypes ={
-  children: PropTypes.element.isRequired
+  items: PropTypes.array.isRequired,
+  removeBook: PropTypes.func.isRequired
 }
